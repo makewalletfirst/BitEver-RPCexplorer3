@@ -1,26 +1,23 @@
-networks:
-  default:
-    driver: bridge
-
 services:
-  explorer:
-    container_name: btc-rpc-explorer
-    #define $UID, $GID in .env file the user to run docker and write in data folder
-    #user: "1000:1000"
-    environment:
-      BTCEXP_HOST: 0.0.0.0
-      BTCEXP_BITCOIND_URI: $BTCEXP_BITCOIND_URI
-      BTCEXP_ADDRESS_API: $BTCEXP_ADDRESS_API
-      BTCEXP_ELECTRUM_SERVERS: $BTCEXP_ELECTRUM_SERVERS
-      BTCEXP_SLOW_DEVICE_MODE: false
-      #More information mode, including Bitcoin exchange rates
-      #More privacy mode, no external queries
-      # BTCEXP_PRIVACY_MODE: true
-      # BTCEXP_NO_RATES: true
-      # BTCEXP_UI_THEME: dark
-    build:
-      context: ./
-    image: btc-rpc-explorer:latest
-    #restart: "no"
+  bitever-explorer:
+    image: silverruler/bitever-rpc-explorer:latest
+    container_name: bitever-rpc-explorer
+    restart: always
     ports:
       - "3002:3002"
+    environment:
+      # 탐색기 자체 설정
+      - BTCEXP_HOST=0.0.0.0
+      - BTCEXP_PORT=3002
+
+      # 비트코인 코어 RPC 연결 설정 (실제 정보로 수정하세요)
+      # 만약 호스트 IP를 쓰신다면 127.0.0.1 대신 서버의 실제 사설 IP를 입력해야 합니다.
+      - BTCEXP_BITCOIND_HOST=127.0.0.1
+      - BTCEXP_BITCOIND_PORT=8332
+      - BTCEXP_BITCOIND_USER=your_rpc_username
+      - BTCEXP_BITCOIND_PASS=your_rpc_password
+
+      # 보안 및 성능 설정
+      - BTCEXP_BASIC_AUTH_PASSWORD=optional_ui_password # UI 접속 비밀번호 설정 시
+      - BTCEXP_SLOW_DEVICE_MODE=false
+      - BTCEXP_NO_RATES=false
