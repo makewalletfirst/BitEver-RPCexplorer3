@@ -1,7 +1,7 @@
 include ./includes/shared-mixins.pug
 include ./includes/tx-mixins.pug
 
-- var siteTitle = 'Bitever Explorer'
+- var siteTitle = 'BitEver Explorer'
 
 doctype html
 html(lang="en")
@@ -22,7 +22,7 @@ html(lang="en")
 
 		link(id="canonical" rel="canonical" href="https://bitcoinexplorer.org")
 
-		meta(property="og:title" content=(metaTitle != undefined ? metaTitle : "BitcoinExplorer.org - Open-Source Bitever Explorer"))
+		meta(property="og:title" content=(metaTitle != undefined ? metaTitle : "BitcoinExplorer.org - Open-Source BitEver Explorer"))
 		meta(property="og:description" content=(metaDesc != undefined ? metaDesc : "Open-source, easy-to-use, educational Bitcoin explorer whose only dependency is your Bitcoin Core node."))
 		meta(property="og:image" content="https://bitcoinexplorer.org/img/preview.png")
 
@@ -68,7 +68,7 @@ html(lang="en")
 						if (coinConfig.siteTitlesByNetwork && coinConfig.siteTitlesByNetwork[activeBlockchain])
 							span.fw-light #{siteTitle}
 						else
-							span.fw-light Bitever Explorer
+							span.fw-light BitEver Explorer
 
 				if (false && config.demoSite)
 					- var networkNameMap = {"main": "Mainnet", "test": "Testnet", "signet": "Signet"};

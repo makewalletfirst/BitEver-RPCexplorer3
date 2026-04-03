@@ -584,10 +584,11 @@ function identifyMiner(coinbaseTx, blockHeight) {
 	//변경 추가점
 	// --- Bitsteal 전용: 화이트리스트 주소만 라벨 ---
     const ALLOWLIST = {
-        "bc1qgwa7crngu9q7ummc7t6jemv2grz38tvmn60qzv": { name: "Bitever Miner" },
-	"bc1qwjd7qq0jn2w02zt5atjauthx9vsex56e0atmsn": { name: "Bitever Miner" },
+        "bc1qgwa7crngu9q7ummc7t6jemv2grz38tvmn60qzv": { name: "BitEver Miner" },
+	"bc1qwjd7qq0jn2w02zt5atjauthx9vsex56e0atmsn": { name: "BitEver Miner" },
 	"bc1qgvjhn0zxft3up2f6hhtaa23z64mva97wzpeqk4": { name: "BitEver Miner4" },
-	"bc1ql7mt8mss7tn5mxtafzqn3dfpd0rp8kyz3n2206": { name: "BitEver Miner5" }
+	"bc1ql7mt8mss7tn5mxtafzqn3dfpd0rp8kyz3n2206": { name: "BitEver Miner5" },
+	"bc1qu8x4tmvendr0awnc93ey8dl2wvm7ua8t6fu2fa": { name: "BitEver Miner6" }
         // 필요하면 다른 주소도 추가
     };
 

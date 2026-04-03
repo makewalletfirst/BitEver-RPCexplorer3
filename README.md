@@ -1,4 +1,8 @@
-BitEver-RPCexplorer2
+BitEver-RPCexplorer3
+change favicon image
+
+
+
 
 change brand name
 delete patoshi

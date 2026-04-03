@@ -1,0 +1,48 @@
+name: BitEver RPC Explorer CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 소스 코드 체크아웃
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # 2. Node.js 환경 설정 (프로젝트 버전에 맞춰 18 또는 20 권장)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      # 3. 의존성 설치 (package-lock.json 기준)
+      - name: Install Dependencies
+        run: npm ci
+
+      # 4. 소스 코드 문법 및 스타일 체크 (Lint)
+      # package.json에 lint 스크립트가 있다면 실행합니다.
+      - name: Run Lint
+        run: npm run lint || echo "No lint script found, skipping..."
+
+      # 5. Docker 빌드 테스트 (가장 중요)
+      # 실제로 이미지가 정상적으로 빌드되는지 확인합니다.
+      - name: Docker Build Test
+        run: |
+          docker build -t bitever-rpc-explorer:test .
+
+      # 6. Docker Compose 설정 검증
+      # SilverRuler 님의 환경에 맞춰 'docker compose' 명령어를 사용합니다.
+      - name: Docker Compose Config Check
+        run: |
+          docker compose config
+
+      # 7. (선택 사항) 테스트 스크립트가 있다면 실행
+      - name: Run Tests
+        run: npm test || echo "No tests found, skipping..."

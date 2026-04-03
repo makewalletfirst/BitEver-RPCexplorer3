@@ -1,7 +1,7 @@
 include ./includes/shared-mixins.pug
 include ./includes/tx-mixins.pug
 
-- var siteTitle = 'Bitever Explorer'
+- var siteTitle = 'BitEver Explorer'
 
 doctype html
 html(lang="en")

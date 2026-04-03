@@ -38,12 +38,12 @@ html(lang="en")
 		if (!network.endsWith("net") && network != "regtest")
 			- network = (network + "net"); // handles "main" -> "mainnet" and "test" -> "testnet"
 
-		link(rel="apple-touch-icon", sizes="180x180", href=assetUrl(`./img/network-${network}/apple-touch-icon.png`))
-		link(rel="icon", type="image/png", sizes="32x32", href=assetUrl(`./img/network-${network}/favicon-32x32.png`))
-		link(rel="icon", type="image/png", sizes="16x16", href=assetUrl(`./img/network-${network}/favicon-16x16.png`))
-		link(rel="manifest", href=`./img/network-${network}/site.webmanifest`)
-		link(rel="mask-icon", href=`./img/network-${network}/safari-pinned-tab.svg`, color="#f7931a")
-		link(rel="shortcut icon", href=assetUrl(`./img/network-${network}/favicon.ico`))
+		//- 기존 41~46행을 삭제하고 아래 내용으로 교체하세요.
+		link(rel="apple-touch-icon", sizes="180x180", href="/bitever-favicon.png")
+		link(rel="icon", type="image/png", sizes="32x32", href="/bitever-favicon.png")
+		link(rel="icon", type="image/png", sizes="16x16", href="/bitever-favicon.png")
+		link(rel="icon", type="image/svg+xml", href="/bitever-favicon.svg")
+		link(rel="shortcut icon", href="/bitever-favicon.png")
 		meta(name="apple-mobile-web-app-title", content="BEC Explorer")
 		meta(name="application-name", content="BEC Explorer")
 		meta(name="msapplication-TileColor", content="#022e70")
